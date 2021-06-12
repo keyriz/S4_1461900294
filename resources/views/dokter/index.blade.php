@@ -11,7 +11,7 @@
                 <div class="mr-4 flex-none overflow-hidden">
                     <h2 class="font-semibold text-lg m-auto">Tabel @yield('title')</h2>
                 </div>
-                <a class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-green-400 px-5 py-2 text-xs shadow-sm font-small tracking-wider text-white rounded-lg hover:shadow-lg " href="{{ route('dokter.import') }}">Import Excel</a>
+                <a class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-green-400 px-5 py-2 text-xs shadow-sm font-small tracking-wider text-white rounded-lg hover:shadow-lg " href="{{ route('dokter.create') }}">Import Excel</a>
             </div>
             <!-- Start kode untuk form pencarian -->
             <form class="flex" method="get" action="{{ url()->current() }}">

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\UsersImport;
+use App\Imports\UserImport;
 use App\Models\User;
 
 class UserController extends Controller
@@ -46,9 +46,21 @@ class UserController extends Controller
     /**
     * Import file excel to database
     */
-    public function import()
+    public function create()
     {
-        Excel::import(new UsersImport, request()->file('file_excel'));
+        return view('user.create');
+    }
+
+    /**
+    * Import file excel to database
+    */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'file_excel' => 'required',
+        ]);
+
+        Excel::import(new UserImport, request()->file('file_excel'));
 
         return redirect()->route('user.index')
         ->with('success','Berhasil mengimport ke User');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\UsersImport;
+use App\Imports\KamarImport;
 use App\Models\Kamar;
 
 class KamarController extends Controller
@@ -46,9 +46,21 @@ class KamarController extends Controller
     /**
     * Import file excel to database
     */
-    public function import()
+    public function create()
     {
-        Excel::import(new UsersImport, request()->file('file_excel'));
+        return view('kamar.create');
+    }
+
+    /**
+    * Import file excel to database
+    */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'file_excel' => 'required',
+        ]);
+
+        Excel::import(new KamarImport, request()->file('file_excel'));
 
         return redirect()->route('kamar.index')
         ->with('success','Berhasil mengimport ke Kamar');

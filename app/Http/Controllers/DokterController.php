@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\UsersImport;
+use App\Imports\DokterImport;
 use App\Models\Dokter;
 
 class DokterController extends Controller
@@ -44,13 +44,25 @@ class DokterController extends Controller
     }
 
     /**
+    * Import file excel to database
+    */
+    public function create()
+    {
+        return view('dokter.create');
+    }
+
+    /**
      * Import file excel to database
      */
-    public function import()
+    public function store(Request $request)
     {
-        Excel::import(new UsersImport, request()->file('file_excel'));
+        $request->validate([
+            'file_excel' => 'required',
+        ]);
+
+        Excel::import(new DokterImport, $request->file('file_excel'));
 
         return redirect()->route('dokter.index')
-                ->with('success','Berhasil mengimport ke Dokter');
+        ->with('success','Berhasil mengimport ke Dokter');
     }
 }

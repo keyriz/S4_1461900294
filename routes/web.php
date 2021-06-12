@@ -21,18 +21,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dokter', [DokterController::class, 'index'])->name('dokter.index');
-Route::get('dokter/destroy', [DokterController::class, 'import'])->name('dokter.destroy');
-Route::get('dokter/import', [DokterController::class, 'import'])->name('dokter.import');
+Route::resource('dokter', DokterController::class);
+// Route::get('dokter', [DokterController::class, 'index'])->name('dokter.index');
+// Route::get('dokter/destroy', [DokterController::class, 'destroy'])->name('dokter.destroy');
+// Route::get('dokter/import', [DokterController::class, 'import'])->name('dokter.import');
+// Route::get('dokter/store', [DokterController::class, 'store'])->name('dokter.store');
 
-Route::get('kamar', [KamarController::class, 'index'])->name('kamar.index');
-Route::get('kamar/destroy', [KamarController::class, 'import'])->name('kamar.destroy');
-Route::get('kamar/import', [KamarController::class, 'import'])->name('kamar.import');
+Route::resource('kamar', KamarController::class);
+// Route::get('kamar', [KamarController::class, 'index'])->name('kamar.index');
+// Route::get('kamar/destroy', [KamarController::class, 'destroy'])->name('kamar.destroy');
+// Route::get('kamar/import', [KamarController::class, 'import'])->name('kamar.import');
+// Route::get('kamar/store', [KamarController::class, 'store'])->name('kamar.store');
 
-Route::get('pasien', [PasienController::class, 'index'])->name('pasien.index');
-Route::get('pasien/destroy', [PasienController::class, 'import'])->name('pasien.destroy');
-Route::get('pasien/import', [PasienController::class, 'import'])->name('pasien.import');
+Route::resource('pasien', PasienController::class);
+// Route::get('pasien', [PasienController::class, 'index'])->name('pasien.index');
+// Route::get('pasien/destroy', [PasienController::class, 'destroy'])->name('pasien.destroy');
+// Route::get('pasien/import', [PasienController::class, 'import'])->name('pasien.import');
+// Route::get('pasien/store', [PasienController::class, 'store'])->name('pasien.store');
 
-Route::get('user', [UserBukuController::class, 'index'])->name('user.index');
-Route::get('user/destroy', [UserBukuController::class, 'import'])->name('user.destroy');
-Route::get('user/import', [UserBukuController::class, 'import'])->name('user.import');
+Route::resource('user', UserBukuController::class);
+// Route::get('user', [UserBukuController::class, 'index'])->name('user.index');
+// Route::get('user/destroy', [UserBukuController::class, 'destroy'])->name('user.destroy');
+// Route::get('user/import', [UserBukuController::class, 'import'])->name('user.import');
+// Route::get('user/store', [UserBukuController::class, 'store'])->name('user.store');
