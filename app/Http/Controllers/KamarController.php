@@ -18,7 +18,7 @@ class KamarController extends Controller
     {
         $kamar = Kamar::when($request->cari, function ($query) use ($request) {
             $query
-            ->where('kamar', 'like', "%{$request->cari}%");
+            ->where('id', 'like', "%{$request->cari}%");
         })->paginate(5);
 
         $kamar->appends($request->only('cari'));
