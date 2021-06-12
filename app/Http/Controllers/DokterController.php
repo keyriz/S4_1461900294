@@ -37,7 +37,6 @@ class DokterController extends Controller
      */
     public function destroy(Dokter $dokter)
     {
-        Excel::import(new UsersImport, request()->file('file_excel'));
         $dokter->delete();
 
         return redirect()->route('dokter.index')
