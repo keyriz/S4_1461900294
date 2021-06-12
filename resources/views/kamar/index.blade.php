@@ -63,12 +63,12 @@
                             </td>
                             <td class="py-3 px-6 text-center">
                                 <div class="flex items-center">
-                                    {{ $kamar->nama_pasien }}
+                                    {{ $kamar->pasien->nama }}
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-center">
                                 <div class="flex items-center">
-                                    {{ $kamar->nama_dokter }}
+                                    {{ $kamar->dokter->nama }}
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-center">
