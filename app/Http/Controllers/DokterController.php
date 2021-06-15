@@ -23,7 +23,7 @@ class DokterController extends Controller
 
         $dokter->appends($request->only('cari'));
 
-        return view('dokter.index', [
+        return view('dokter-294.index', [
             'dokter' => $dokter,
         ])
         ->with('i', ($request->input('page', 1) - 1) * 5);
@@ -39,7 +39,7 @@ class DokterController extends Controller
     {
         $dokter->delete();
 
-        return redirect()->route('dokter.index')
+        return redirect()->route('dokter-294.index')
                 ->with('success','Dokter berhasil dihapus');
     }
 
@@ -48,7 +48,7 @@ class DokterController extends Controller
     */
     public function create()
     {
-        return view('dokter.create');
+        return view('dokter-294.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class DokterController extends Controller
 
         Excel::import(new DokterImport, $request->file('file_excel'));
 
-        return redirect()->route('dokter.index')
+        return redirect()->route('dokter-294.index')
         ->with('success','Berhasil mengimport ke Dokter');
     }
 }

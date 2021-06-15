@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'User')
+@section('title', 'Dokter')
 
 @section('content')
 
@@ -11,7 +11,7 @@
                 <div class="mr-4 flex-none overflow-hidden">
                     <h2 class="font-semibold text-lg m-auto">Tabel @yield('title')</h2>
                 </div>
-                <a class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-green-400 px-5 py-2 text-xs shadow-sm font-small tracking-wider text-white rounded-lg hover:shadow-lg " href="{{ route('user.create') }}">Import Excel</a>
+                <a class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-green-400 px-5 py-2 text-xs shadow-sm font-small tracking-wider text-white rounded-lg hover:shadow-lg " href="{{ route('dokter-294.create') }}">Import Excel</a>
             </div>
             <!-- Start kode untuk form pencarian -->
             <form class="flex" method="get" action="{{ url()->current() }}">
@@ -32,13 +32,13 @@
                             <th class="py-3 px-6 text-left">Nomor</th>
                             <th class="py-3 px-6 text-left">ID</th>
                             <th class="py-3 px-6 text-left">Nama</th>
-                            <th class="py-3 px-6 text-left">Username</th>
+                            <th class="py-3 px-6 text-left">Jabatan</th>
                             <th class="py-3 px-6 text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-600 text-sm">
 
-                        <?php if (count($user) <= 0): ?>
+                        <?php if (count($dokter) <= 0): ?>
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left whitespace-nowrap" colspan="6">
                                     <div class="flex items-center">
@@ -48,7 +48,7 @@
                             </tr>
                         <?php endif; ?>
 
-                        @foreach ($user as $user)
+                        @foreach ($dokter as $dokter)
 
                         <tr class="border-b border-gray-200 hover:bg-gray-100">
                             <td class="py-3 px-6 text-left whitespace-nowrap">
@@ -58,25 +58,25 @@
                             </td>
                             <td class="py-3 px-6 text-center">
                                 <div class="flex items-center">
-                                    {{ $user->id }}
+                                    {{ $dokter->id }}
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-center">
                                 <div class="flex items-center">
-                                    {{ $user->nama }}
+                                    {{ $dokter->nama }}
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-center">
                                 <div class="flex items-center">
-                                    {{ $user->username }}
+                                    {{ $dokter->jabatan }}
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-center">
-                                <form action="{{ route('user.destroy',$user->id) }}" method="POST">
+                                <form action="{{ route('dokter-294.destroy',$dokter->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="flex item-center justify-center">
-                                        <button class="btn btn-primary btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data #{{ $user->id }}?')">
+                                        <button class="btn btn-primary btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data #{{ $dokter->id }}?')">
                                             <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />

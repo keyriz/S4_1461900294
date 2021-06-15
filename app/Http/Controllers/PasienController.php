@@ -23,7 +23,7 @@ class PasienController extends Controller
 
         $pasien->appends($request->only('cari'));
 
-        return view('pasien.index', [
+        return view('pasien-294.index', [
             'pasien' => $pasien,
         ])
         ->with('i', ($request->input('page', 1) - 1) * 5);
@@ -39,7 +39,7 @@ class PasienController extends Controller
     {
         $pasien->delete();
 
-        return redirect()->route('pasien.index')
+        return redirect()->route('pasien-294.index')
                 ->with('success','Pasien berhasil dihapus');
     }
 
@@ -48,7 +48,7 @@ class PasienController extends Controller
     */
     public function create()
     {
-        return view('pasien.create');
+        return view('pasien-294.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class PasienController extends Controller
 
         Excel::import(new PasienImport, request()->file('file_excel'));
 
-        return redirect()->route('pasien.index')
+        return redirect()->route('pasien-294.index')
         ->with('success','Berhasil mengimport ke Pasien');
     }
 }

@@ -23,7 +23,7 @@ class KamarController extends Controller
 
         $kamar->appends($request->only('cari'));
 
-        return view('kamar.index', [
+        return view('kamar-294.index', [
             'kamar' => $kamar,
         ])
         ->with('i', ($request->input('page', 1) - 1) * 5);
@@ -39,7 +39,7 @@ class KamarController extends Controller
     {
         $kamar->delete();
 
-        return redirect()->route('kamar.index')
+        return redirect()->route('kamar-294.index')
                 ->with('success','Kamar berhasil dihapus');
     }
 
@@ -48,7 +48,7 @@ class KamarController extends Controller
     */
     public function create()
     {
-        return view('kamar.create');
+        return view('kamar-294.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class KamarController extends Controller
 
         Excel::import(new KamarImport, request()->file('file_excel'));
 
-        return redirect()->route('kamar.index')
+        return redirect()->route('kamar-294.index')
         ->with('success','Berhasil mengimport ke Kamar');
     }
 }

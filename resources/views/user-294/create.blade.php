@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Import Dokter')
+@section('title', 'Import User')
 
 @section('content')
 
@@ -13,10 +13,9 @@
                     <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
                 </div>
                 <div class="mt-5">
-                    <form action="{{ route('dokter.store') }}" method="POST" class="form" enctype="multipart/form-data">
+                    <form action="{{ route('user-294.store') }}" method="POST" class="form" enctype="multipart/form-data">
                         @csrf
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Unggah File Excel</label>
-                        <p>*Pastikan</p>
                         <div class='flex items-center justify-center w-full'>
                             <label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
                                 <div class='flex flex-col items-center justify-center pt-7'>
@@ -36,7 +35,7 @@
                         </div>
                         @endif
                         <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                            <a href="{{ route('dokter.index') }}" class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-lg hover:shadow-lg">Batal</a>
+                            <a href="{{ route('user-294.index') }}" class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-lg hover:shadow-lg">Batal</a>
                             <button class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-lg hover:shadow-lg " type="submit">Import</button>
                         </div>
                     </form>

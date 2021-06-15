@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Import User')
+@section('title', 'Import Pasien')
 
 @section('content')
 
@@ -13,7 +13,7 @@
                     <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
                 </div>
                 <div class="mt-5">
-                    <form action="{{ route('user.store') }}" method="POST" class="form" enctype="multipart/form-data">
+                    <form action="{{ route('pasien-294.store') }}" method="POST" class="form" enctype="multipart/form-data">
                         @csrf
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Unggah File Excel</label>
                         <div class='flex items-center justify-center w-full'>
@@ -35,7 +35,7 @@
                         </div>
                         @endif
                         <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                            <a href="{{ route('user.index') }}" class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-lg hover:shadow-lg">Batal</a>
+                            <a href="{{ route('pasien-294.index') }}" class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-lg hover:shadow-lg">Batal</a>
                             <button class="transition duration-300 ease-in-out mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-lg hover:shadow-lg " type="submit">Import</button>
                         </div>
                     </form>
